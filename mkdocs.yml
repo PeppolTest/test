@@ -1,4 +1,4 @@
 site_name: Peppol Project Documentation
-site_url: https://peppol.github.io
+site_url: https://peppoltest.github.io
 theme:
   name: material
