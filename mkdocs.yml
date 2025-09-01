@@ -1,5 +1,10 @@
 site_name: Peppol Project Documentation
 site_url: https://peppoltest.github.io/test/
+repo_url: https://github.com/PeppolTest/test
+repo_name: GitHub
+
+edit_uri: edit/main/docs/
+
 theme:
   name: material
   logo: assets/PeppolWhite.png
@@ -26,6 +31,8 @@ theme:
     - search.suggest
     - toc.integrate
     - navigation.instant
+    - content.action.edit
+    - content.action.view
 
 nav:
   - Home: index.md
