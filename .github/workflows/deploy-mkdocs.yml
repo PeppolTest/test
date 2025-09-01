@@ -5,6 +5,9 @@ on:
     branches:
       - main # triggers on any push to main
 
+permissions:
+  contents: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
