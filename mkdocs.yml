@@ -16,33 +16,16 @@ theme:
         icon: material/brightness-4
         name: Switch to light mode
 
-  # font:
-  #   text: Merriweather Sans
-  #   code: Red Hat Mono
-
-  # favicon: assets/favicon.ico
-
-  # features:
-  #   - navigation.tabs
-  #   - navigation.top
-  #   - navigation.sections
-  #   - search.highlight
-  #   - search.suggest
-  #   - toc.integrate
-  #   - content.grid
-  #   - content.code.annotate
-  #   - content.code.copy
-  #   - content.tabs.link
-
-  #   - header.autohide
-  #   - navigation.expand
-  #   - navigation.indexes
-  #   - navigation.tracking
-  #   - navigation.instant
-
   features:
     - content.code.annotate
     - content.tabs.link
+    - content.code.copy
+    - header.autohide
+    - navigation.expand
+    - search.highlight
+    - search.suggest
+    - toc.integrate
+    - navigation.instant
 
 nav:
   - Home: index.md
@@ -51,9 +34,6 @@ nav:
       - MySQL setup: getting-started/mysql-setup.md
       - MySQL remote connection: getting-started/remote-connection.md
       - Database structure: getting-started/database-structure.md
-  - API Reference:
-      - Overview: api/index.md
-      - Endpoints: api/endpoints.md
   - FAQ: faq.md
   - Backup: backup.md
 
@@ -68,8 +48,8 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
-  - attr_list # enables {...} attribute lists
-  - md_in_html # allows Markdown inside raw HTML blocks
+  - attr_list
+  - md_in_html
   - pymdownx.tabbed:
       alternate_style: true
   - admonition
