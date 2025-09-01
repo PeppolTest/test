@@ -1,17 +1,31 @@
-# Welcome to MkDocs
+# Home
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+_Welcome to the Peppol Documentation page_
 
-## Commands
+<!-- Custom Html class for clean cards pointing to important directories -->
+<div class="grid cards" markdown>
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+- :material-rocket: __Quickstart__
 
-## Project layout
+    ---
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+    Get started in minutes.  
+    [:octicons-arrow-right-24: Read quickstart](getting-started/index.md)
+
+- :material-mouse-scroll-wheel: __Configuration__
+
+    ---
+
+    Settings, env vars and examples.  
+    [:octicons-arrow-right-24: Read config](getting-started/config.md)
+
+- :material-account: __Peppol Integration__
+
+    ---
+
+    Design notes and UBL examples.  
+    [:octicons-arrow-right-24: Read Peppol](integration/peppol.md)
+
+</div>
+
+---
