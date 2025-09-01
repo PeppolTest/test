@@ -12,19 +12,19 @@ _Welcome to the Peppol Documentation page_
     Get started in minutes.  
     [:octicons-arrow-right-24: Read quickstart](getting-started/index.md)
 
-- :material-mouse-scroll-wheel: __Configuration__
+<!-- - :material-mouse-scroll-wheel: __Configuration__
 
     ---
 
     Settings, env vars and examples.  
-    [:octicons-arrow-right-24: Read config](getting-started/config.md)
+    [:octicons-arrow-right-24: Read config](getting-started/config.md) -->
 
-- :material-account: __Peppol Integration__
+<!-- - :material-account: __Peppol Integration__
 
     ---
 
     Design notes and UBL examples.  
-    [:octicons-arrow-right-24: Read Peppol](integration/peppol.md)
+    [:octicons-arrow-right-24: Read Peppol](integration/peppol.md) -->
 
 </div>
 
