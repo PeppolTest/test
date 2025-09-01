@@ -8,22 +8,28 @@
       
       
       
+        <link rel="canonical" href="https://peppoltest.github.io/test/getting-started/remote-connection/">
       
       
+        <link rel="prev" href="../mysql-setup/">
       
-      <link rel="icon" href="/test/assets/images/favicon.png">
+      
+        <link rel="next" href="../database-structure/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
     
     
       
-        <title>Peppol Project Documentation</title>
+        <title>MySQL remote connection - Peppol Project Documentation</title>
       
     
     
-      <link rel="stylesheet" href="/test/assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
       
         
-        <link rel="stylesheet" href="/test/assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -42,9 +48,9 @@
       
     
     
-      <link rel="stylesheet" href="/test/stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("/test/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -69,6 +75,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#remote-connection" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -81,9 +92,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/test/." title="Peppol Project Documentation" class="md-header__button md-logo" aria-label="Peppol Project Documentation" data-md-component="logo">
+    <a href="../.." title="Peppol Project Documentation" class="md-header__button md-logo" aria-label="Peppol Project Documentation" data-md-component="logo">
       
-  <img src="/test/assets/PeppolWhite.png" alt="logo">
+  <img src="../../assets/PeppolWhite.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -100,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              MySQL remote connection
             
           </span>
         </div>
@@ -208,9 +219,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/test/." title="Peppol Project Documentation" class="md-nav__button md-logo" aria-label="Peppol Project Documentation" data-md-component="logo">
+    <a href="../.." title="Peppol Project Documentation" class="md-nav__button md-logo" aria-label="Peppol Project Documentation" data-md-component="logo">
       
-  <img src="/test/assets/PeppolWhite.png" alt="logo">
+  <img src="../../assets/PeppolWhite.png" alt="logo">
 
     </a>
     Peppol Project Documentation
@@ -225,7 +236,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/test/." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -244,20 +255,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -273,7 +284,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Getting Started
@@ -287,7 +298,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/test/getting-started/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -310,7 +321,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/test/getting-started/mysql-setup/" class="md-nav__link">
+      <a href="../mysql-setup/" class="md-nav__link">
         
   
   
@@ -330,10 +341,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/test/getting-started/remote-connection/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -344,6 +364,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -356,7 +377,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/test/getting-started/database-structure/" class="md-nav__link">
+      <a href="../database-structure/" class="md-nav__link">
         
   
   
@@ -386,7 +407,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/test/faq/" class="md-nav__link">
+      <a href="../../faq/" class="md-nav__link">
         
   
   
@@ -408,7 +429,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/test/backup/" class="md-nav__link">
+      <a href="../../backup/" class="md-nav__link">
         
   
   
@@ -435,8 +456,24 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+
+<h1 id="remote-connection">Remote Connection</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -474,10 +511,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "/test/", "features": ["content.code.annotate", "content.tabs.link", "content.code.copy", "header.autohide", "navigation.expand", "search.highlight", "search.suggest", "toc.integrate", "navigation.instant"], "search": "/test/assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "content.tabs.link", "content.code.copy", "header.autohide", "navigation.expand", "search.highlight", "search.suggest", "toc.integrate", "navigation.instant"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="/test/assets/javascripts/bundle.92b07e13.min.js"></script>
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
       
     
   </body>
