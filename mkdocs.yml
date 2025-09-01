@@ -1,0 +1,4 @@
+site_name: Peppol Project Documentation
+site_url: https://peppol.github.io
+theme:
+  name: material
