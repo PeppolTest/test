@@ -4,9 +4,9 @@ To use MySQL over a network on a macOS system, you must install the MySQL Server
 
 ## 1. Install MySQL Server on macOS
 
-- Download the macOS native package installer (.dmg file) from the official MySQL website
-- Double-click the downloaded file to mount the DMG and then open the .pkg file within to launch the installation wizard
-- Follow the steps in the installer to install MySQL Community Server and set a root password
+* Download the macOS native package installer (.dmg file) from the official MySQL website
+* Double-click the downloaded file to mount the DMG and then open the .pkg file within to launch the installation wizard
+* Follow the steps in the installer to install MySQL Community Server and set a root password
 
 ## 2. Configure MySQL for Remote Connections
 
@@ -18,13 +18,13 @@ find . -name my.cnf
 ```
 
 This typically returns two locations:
-- `/opt/homebrew/etc/my.cnf` (main config file)
-- `/opt/homebrew/Cellar/mysql/8.0.33_3/.bottle/etc/my.cnf` (version-specific config)
+* `/opt/homebrew/etc/my.cnf` (main config file)
+* `/opt/homebrew/Cellar/mysql/8.0.33_3/.bottle/etc/my.cnf` (version-specific config)
 
 ### Modify the bind-address:
-- Edit the configuration file (typically the one in `/opt/homebrew/etc/my.cnf`)
-- Find the `bind-address` line in the `[mysqld]` section. By default, it's often set to `127.0.0.1` (localhost)
-- Change `bind-address` to `0.0.0.0` in the `[mysqld]` section:
+* Edit the configuration file (typically the one in `/opt/homebrew/etc/my.cnf`)
+* Find the `bind-address` line in the `[mysqld]` section. By default, it's often set to `127.0.0.1` (localhost)
+* Change `bind-address` to `0.0.0.0` in the `[mysqld]` section:
 ```ini
 [mysqld]
 bind-address = 0.0.0.0
@@ -49,15 +49,15 @@ Log in to MySQL as root or a user with administrative privileges, then create a 
 ```sql
 CREATE USER 'remote'@'%' IDENTIFIED BY 'dummy-pw';
 ```
-- The `'remote'@'%'` format means user 'remote' can connect from any host (`%` is a wildcard)
-- Replace the dummy password with your own secure password
+* The `'remote'@'%'` format means user 'remote' can connect from any host (`%` is a wildcard)
+* Replace the dummy password with your own secure password
 
 ### Grant privileges:
 ```sql
 GRANT ALL PRIVILEGES ON *.* TO 'remote'@'%' WITH GRANT OPTION;
 ```
-- `ALL PRIVILEGES` grants full access to all databases and tables (`*.*`)
-- `WITH GRANT OPTION` allows this user to grant privileges to other users
+* `ALL PRIVILEGES` grants full access to all databases and tables (`*.*`)
+* `WITH GRANT OPTION` allows this user to grant privileges to other users
 
 ### Apply the changes:
 ```sql
