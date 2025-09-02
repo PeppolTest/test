@@ -26,6 +26,7 @@ brew help
 ---
 
 ## 2. Install MySQL via Homebrew
+[MySQL instalation tutorial](https://sqlpad.io/tutorial/mysql-install-mac/)
 
 Run:
 ```bash
