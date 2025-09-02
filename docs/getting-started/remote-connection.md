@@ -49,16 +49,16 @@ Log in to MySQL as root or a user with administrative privileges, then create a 
 ```sql
 CREATE USER 'remote'@'%' IDENTIFIED BY 'dummy-pw';
 ```
-* The `'remote'@'%'` format means user 'remote' can connect from any host (`%` is a wildcard)
 
+* The `'remote'@'%'` format means user 'remote' can connect from any host (`%` is a wildcard)
 * Replace the dummy password with your own secure password
 
 ### Grant privileges:
 ```sql
 GRANT ALL PRIVILEGES ON *.* TO 'remote'@'%' WITH GRANT OPTION;
 ```
-* `ALL PRIVILEGES` grants full access to all databases and tables (`*.*`)
 
+* `ALL PRIVILEGES` grants full access to all databases and tables (`*.*`)
 * `WITH GRANT OPTION` allows this user to grant privileges to other users
 
 ### Apply the changes:
