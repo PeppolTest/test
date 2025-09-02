@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#remote-connection" class="md-skip">
+        <a href="#mysql-network-setup-guide-for-macos" class="md-skip">
           Skip to content
         </a>
       
@@ -377,6 +377,19 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    MySQL remote connection
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -388,6 +401,136 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-install-mysql-server-on-macos" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Install MySQL Server on macOS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-configure-mysql-for-remote-connections" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Configure MySQL for Remote Connections
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Configure MySQL for Remote Connections">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#locate-the-mysql-configuration-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Locate the MySQL configuration file:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modify-the-bind-address" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modify the bind-address:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restart-the-mysql-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      Restart the MySQL service:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-configure-the-firewall" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Configure the Firewall
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-grant-remote-access-in-mysql" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Grant Remote Access in MySQL
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Grant Remote Access in MySQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-remote-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a remote user:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grant-privileges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Grant privileges:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apply-the-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apply the changes:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verify-the-user-was-created" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verify the user was created:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -500,8 +643,58 @@
   
 
 
-<h1 id="remote-connection">Remote Connection</h1>
-<p>test</p>
+<h1 id="mysql-network-setup-guide-for-macos">MySQL Network Setup Guide for macOS</h1>
+<p>To use MySQL over a network on a macOS system, you must install the MySQL Server software and configure it to allow remote connections, typically by changing the bind-address in the configuration file to allow connections from external IP addresses rather than just localhost. Additionally, you may need to configure the firewall to permit connections to the MySQL port (default 3306) and grant the necessary permissions to remote users within MySQL itself.</p>
+<h2 id="1-install-mysql-server-on-macos">1. Install MySQL Server on macOS</h2>
+<ul>
+<li>Download the macOS native package installer (.dmg file) from the official MySQL website</li>
+<li>Double-click the downloaded file to mount the DMG and then open the .pkg file within to launch the installation wizard</li>
+<li>Follow the steps in the installer to install MySQL Community Server and set a root password</li>
+</ul>
+<h2 id="2-configure-mysql-for-remote-connections">2. Configure MySQL for Remote Connections</h2>
+<h3 id="locate-the-mysql-configuration-file">Locate the MySQL configuration file:</h3>
+<p>If you installed MySQL via Homebrew, you can find the configuration file using:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">cd</span><span class="w"> </span>/opt/homebrew
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>find<span class="w"> </span>.<span class="w"> </span>-name<span class="w"> </span>my.cnf
+</span></code></pre></div></p>
+<p>This typically returns two locations:
+- <code>/opt/homebrew/etc/my.cnf</code> (main config file)
+- <code>/opt/homebrew/Cellar/mysql/8.0.33_3/.bottle/etc/my.cnf</code> (version-specific config)</p>
+<h3 id="modify-the-bind-address">Modify the bind-address:</h3>
+<ul>
+<li>Edit the configuration file (typically the one in <code>/opt/homebrew/etc/my.cnf</code>)</li>
+<li>Find the <code>bind-address</code> line in the <code>[mysqld]</code> section. By default, it's often set to <code>127.0.0.1</code> (localhost)</li>
+<li>Change <code>bind-address</code> to <code>0.0.0.0</code> in the <code>[mysqld]</code> section:
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[mysqld]</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">bind-address</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">0.0.0.0</span>
+</span></code></pre></div>
+  This allows connections from any IP address</li>
+</ul>
+<h3 id="restart-the-mysql-service">Restart the MySQL service:</h3>
+<p>After saving the changes, restart the MySQL service:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>mysql
+</span></code></pre></div></p>
+<h2 id="3-configure-the-firewall">3. Configure the Firewall</h2>
+<p>Ensure that your macOS firewall is configured to allow incoming connections to the MySQL port, which is 3306 by default.</p>
+<h2 id="4-grant-remote-access-in-mysql">4. Grant Remote Access in MySQL</h2>
+<p>Log in to MySQL as root or a user with administrative privileges, then create a remote user and grant permissions:</p>
+<h3 id="create-a-remote-user">Create a remote user:</h3>
+<p><div class="language-sql highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="s1">&#39;remote&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="w"> </span><span class="n">IDENTIFIED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;dummy-pw&#39;</span><span class="p">;</span>
+</span></code></pre></div>
+- The <code>'remote'@'%'</code> format means user 'remote' can connect from any host (<code>%</code> is a wildcard)
+- Replace the dummy password with your own secure password</p>
+<h3 id="grant-privileges">Grant privileges:</h3>
+<p><div class="language-sql highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">GRANT</span><span class="w"> </span><span class="k">ALL</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="o">*</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">&#39;remote&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="k">GRANT</span><span class="w"> </span><span class="k">OPTION</span><span class="p">;</span>
+</span></code></pre></div>
+- <code>ALL PRIVILEGES</code> grants full access to all databases and tables (<code>*.*</code>)
+- <code>WITH GRANT OPTION</code> allows this user to grant privileges to other users</p>
+<h3 id="apply-the-changes">Apply the changes:</h3>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">FLUSH</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="p">;</span>
+</span></code></pre></div>
+<h3 id="verify-the-user-was-created">Verify the user was created:</h3>
+<p><div class="language-sql highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">mysql</span><span class="p">.</span><span class="k">user</span><span class="p">;</span>
+</span></code></pre></div>
+This will show all users in the MySQL system, including your new 'remote' user.</p>
 
 
 
