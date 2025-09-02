@@ -679,17 +679,17 @@
 <h2 id="4-grant-remote-access-in-mysql">4. Grant Remote Access in MySQL</h2>
 <p>Log in to MySQL as root or a user with administrative privileges, then create a remote user and grant permissions:</p>
 <h3 id="create-a-remote-user">Create a remote user:</h3>
-<p><div class="language-sql highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="s1">&#39;remote&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="w"> </span><span class="n">IDENTIFIED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;dummy-pw&#39;</span><span class="p">;</span>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="s1">&#39;remote&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="w"> </span><span class="n">IDENTIFIED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;dummy-pw&#39;</span><span class="p">;</span>
 </span></code></pre></div>
-* The <code>'remote'@'%'</code> format means user 'remote' can connect from any host (<code>%</code> is a wildcard)</p>
 <ul>
+<li>The <code>'remote'@'%'</code> format means user 'remote' can connect from any host (<code>%</code> is a wildcard)</li>
 <li>Replace the dummy password with your own secure password</li>
 </ul>
 <h3 id="grant-privileges">Grant privileges:</h3>
-<p><div class="language-sql highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">GRANT</span><span class="w"> </span><span class="k">ALL</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="o">*</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">&#39;remote&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="k">GRANT</span><span class="w"> </span><span class="k">OPTION</span><span class="p">;</span>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">GRANT</span><span class="w"> </span><span class="k">ALL</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="o">*</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">&#39;remote&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="k">GRANT</span><span class="w"> </span><span class="k">OPTION</span><span class="p">;</span>
 </span></code></pre></div>
-* <code>ALL PRIVILEGES</code> grants full access to all databases and tables (<code>*.*</code>)</p>
 <ul>
+<li><code>ALL PRIVILEGES</code> grants full access to all databases and tables (<code>*.*</code>)</li>
 <li><code>WITH GRANT OPTION</code> allows this user to grant privileges to other users</li>
 </ul>
 <h3 id="apply-the-changes">Apply the changes:</h3>
