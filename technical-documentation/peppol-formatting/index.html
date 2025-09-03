@@ -739,35 +739,33 @@
 Each layer has its own purpose:</p>
 <hr />
 <h2 id="1-business-model-en-16931">1. Business Model (EN 16931)</h2>
+<p><em>Defines <strong>what</strong> data must be present in an invoice.</em></p>
+<p>Examples:</p>
 <ul>
-<li>Defines <strong>what</strong> data must be present in an invoice.<br />
-Examples:  </li>
 <li>Invoice ID  </li>
 <li>Issue Date  </li>
 <li>Seller and Buyer details  </li>
 <li>At least one line with description, quantity, price, and tax  </li>
-<li>Totals and payment information<br />
-These are called <strong>Business Terms (BT-1 … BT-147)</strong>.  </li>
+<li>Totals and payment information</li>
 </ul>
+<p>These are called <strong>Business Terms (BT-1 … BT-147)</strong>.  </p>
 <p><strong>Analogy:</strong> the <em>content of the letter</em>.</p>
 <hr />
 <h2 id="2-syntax-binding-ubl-21">2. Syntax Binding (UBL 2.1)</h2>
-<ul>
-<li>Defines <strong>how</strong> to write the business model in a machine-readable format.  </li>
-<li>UBL = <strong>Universal Business Language</strong>, an XML schema maintained by OASIS.  </li>
-<li>Example:  </li>
-<li>BT-1 “Invoice number” →
+<p><em>Defines <strong>how</strong> to write the business model in a machine-readable format.</em></p>
+<p>UBL = <strong>Universal Business Language</strong>, an XML schema maintained by OASIS.  </p>
+<p>Example:<br />
+  - BT-1 “Invoice number” →
     <div class="language-xml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">&lt;cbc:ID&gt;</span>INV-2025-0001<span class="nt">&lt;/cbc:ID&gt;</span>
-</span></code></pre></div></li>
-<li>Placed inside the <code>&lt;Invoice&gt;</code> XML root element.  </li>
-</ul>
+</span></code></pre></div>
+  - Placed inside the <code>&lt;Invoice&gt;</code> XML root element.  </p>
 <p><strong>Analogy:</strong> the <em>language the letter is written in</em>.</p>
 <hr />
 <h2 id="3-peppol-bis-billing-30">3. PEPPOL BIS Billing 3.0</h2>
+<p><em>BIS = <strong>Business Interoperability Specification</strong>.</em></p>
+<p><em>PEPPOL specifies <strong>exactly which options and codes</strong> must be used.</em></p>
+<p>Examples:</p>
 <ul>
-<li>BIS = <strong>Business Interoperability Specification</strong>.  </li>
-<li>PEPPOL specifies <strong>exactly which options and codes</strong> must be used.<br />
-Examples:  </li>
 <li>Must include <code>&lt;cbc:ProfileID&gt;</code> with a specific value.  </li>
 <li>Currency codes must follow ISO 4217 (e.g. <code>EUR</code>).  </li>
 <li>Units must follow UN/ECE codes (<code>EA</code> for “each”, <code>HUR</code> for “hour”).  </li>
@@ -776,10 +774,10 @@ Examples:  </li>
 <p><strong>Analogy:</strong> the <em>strict format the post office requires for the envelope</em>.</p>
 <hr />
 <h2 id="4-validation-artefacts-schematron-rules">4. Validation Artefacts (Schematron Rules)</h2>
+<p><em>After creating a UBL file, it must be tested against EN 16931 and PEPPOL rules.</em></p>
+<p><em>Validation is performed with <strong>Schematron</strong>, an XML rule language.</em></p>
+<p>Example rule:  </p>
 <ul>
-<li>After creating a UBL file, it must be tested against EN 16931 and PEPPOL rules.  </li>
-<li>Validation is performed with <strong>Schematron</strong>, an XML rule language.<br />
-Example rule:  </li>
 <li>“Invoice must have at least one <code>&lt;cac:AccountingSupplierParty&gt;</code>.”  </li>
 <li>If rules are not followed, the invoice is <strong>rejected</strong>.  </li>
 </ul>
@@ -791,6 +789,7 @@ Example rule:  </li>
 <li>Instead, they are delivered through a <strong>PEPPOL Access Point</strong> (like an ISP for invoices).  </li>
 <li>The UBL invoice is wrapped in a <strong>Standard Business Document Header (SBDH)</strong> and transmitted securely using the <strong>AS4 protocol</strong>.</li>
 </ul>
+<p><strong>Analogy:</strong> the <em>postal service that delivers the letter to the recipient’s mailbox</em>.  </p>
 <div class="admonition as4">
 <p class="admonition-title">As4</p>
 <p><strong>AS4</strong> stands for <strong>Applicability Statement 4</strong>.<br />
@@ -807,9 +806,7 @@ It is a <strong>communication protocol</strong>: a set of technical rules about 
 <li>Your <strong>UBL invoice</strong> is wrapped into a secure <strong>AS4 message</strong> by your <strong>Access Point</strong>.  </li>
 <li>The AS4 message is sent to the recipient’s Access Point, which unwraps it and delivers the invoice.  </li>
 </ul>
-<hr />
 </div>
-<p><strong>Analogy:</strong> the <em>postal service that delivers the letter to the recipient’s mailbox</em>.  </p>
 <hr />
 
 
