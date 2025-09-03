@@ -25,7 +25,7 @@ Each layer has its own purpose:
 - Defines **how** to write the business model in a machine-readable format.  
 - UBL = **Universal Business Language**, an XML schema maintained by OASIS.  
 - Example:  
-  - BT-1 “Invoice number” →  
+  - BT-1 “Invoice number” →
     ```xml
     <cbc:ID>INV-2025-0001</cbc:ID>
     ```  
@@ -68,7 +68,5 @@ Each layer has its own purpose:
 - The UBL invoice is wrapped in a **Standard Business Document Header (SBDH)** and transmitted securely using the **AS4 protocol**.  
 
 **Analogy:** the *postal service that delivers the letter to the recipient’s mailbox*.  
-
-⚠️ This step comes **later** — the first milestone is simply generating a valid UBL invoice.
 
 ---
