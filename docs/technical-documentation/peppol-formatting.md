@@ -8,13 +8,13 @@ Each layer has its own purpose:
 ## 1. Business Model (EN 16931)
 
 - Defines **what** data must be present in an invoice.  
-- Examples:  
+Examples:  
   - Invoice ID  
   - Issue Date  
   - Seller and Buyer details  
   - At least one line with description, quantity, price, and tax  
   - Totals and payment information  
-- These are called **Business Terms (BT-1 … BT-147)**.  
+These are called **Business Terms (BT-1 … BT-147)**.  
 
 **Analogy:** the *content of the letter*.
 
@@ -39,7 +39,7 @@ Each layer has its own purpose:
 
 - BIS = **Business Interoperability Specification**.  
 - PEPPOL specifies **exactly which options and codes** must be used.  
-- Examples:  
+Examples:  
   - Must include `<cbc:ProfileID>` with a specific value.  
   - Currency codes must follow ISO 4217 (e.g. `EUR`).  
   - Units must follow UN/ECE codes (`EA` for “each”, `HUR` for “hour”).  
@@ -53,9 +53,9 @@ Each layer has its own purpose:
 
 - After creating a UBL file, it must be tested against EN 16931 and PEPPOL rules.  
 - Validation is performed with **Schematron**, an XML rule language.  
-- Example rule:  
+Example rule:  
   - “Invoice must have at least one `<cac:AccountingSupplierParty>`.”  
-- If rules are not followed, the invoice is **rejected**.  
+  - If rules are not followed, the invoice is **rejected**.  
 
 **Analogy:** the *postal worker checking if your address is correct before delivering*.
 
@@ -65,7 +65,27 @@ Each layer has its own purpose:
 
 - Invoices are **not sent by email**.  
 - Instead, they are delivered through a **PEPPOL Access Point** (like an ISP for invoices).  
-- The UBL invoice is wrapped in a **Standard Business Document Header (SBDH)** and transmitted securely using the **AS4 protocol**.  
+- The UBL invoice is wrapped in a **Standard Business Document Header (SBDH)** and transmitted securely using the **AS4 protocol**.
+
+!!! AS4
+    **AS4** stands for **Applicability Statement 4**.  
+    It is a **communication protocol**: a set of technical rules about *how two computers exchange business documents over the internet*.
+    
+    ---
+    
+    ## Key points
+    
+    - **AS2** was the older standard (often used in retail supply chains).  
+    - **AS4** is the newer standard, built on **web services (SOAP)** with added **security and reliability**.
+    
+    ---
+    
+    ## Role in PEPPOL
+    
+    - Your **UBL invoice** is wrapped into a secure **AS4 message** by your **Access Point**.  
+    - The AS4 message is sent to the recipient’s Access Point, which unwraps it and delivers the invoice.  
+    
+    ---
 
 **Analogy:** the *postal service that delivers the letter to the recipient’s mailbox*.  
 
