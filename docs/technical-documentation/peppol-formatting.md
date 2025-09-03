@@ -7,13 +7,16 @@ Each layer has its own purpose:
 
 ## 1. Business Model (EN 16931)
 
-- Defines **what** data must be present in an invoice.  
-Examples:  
+_Defines **what** data must be present in an invoice._
+  
+Examples:
+
   - Invoice ID  
   - Issue Date  
   - Seller and Buyer details  
   - At least one line with description, quantity, price, and tax  
-  - Totals and payment information  
+  - Totals and payment information
+
 These are called **Business Terms (BT-1 … BT-147)**.  
 
 **Analogy:** the *content of the letter*.
@@ -22,14 +25,16 @@ These are called **Business Terms (BT-1 … BT-147)**.
 
 ## 2. Syntax Binding (UBL 2.1)
 
-- Defines **how** to write the business model in a machine-readable format.  
-- UBL = **Universal Business Language**, an XML schema maintained by OASIS.  
-- Example:  
+_Defines **how** to write the business model in a machine-readable format._
+
+UBL = **Universal Business Language**, an XML schema maintained by OASIS.  
+
+Example:  
   - BT-1 “Invoice number” →
     ```xml
     <cbc:ID>INV-2025-0001</cbc:ID>
     ```  
-- Placed inside the `<Invoice>` XML root element.  
+  - Placed inside the `<Invoice>` XML root element.  
 
 **Analogy:** the *language the letter is written in*.
 
@@ -37,9 +42,12 @@ These are called **Business Terms (BT-1 … BT-147)**.
 
 ## 3. PEPPOL BIS Billing 3.0
 
-- BIS = **Business Interoperability Specification**.  
-- PEPPOL specifies **exactly which options and codes** must be used.  
-Examples:  
+_BIS = **Business Interoperability Specification**._
+
+_PEPPOL specifies **exactly which options and codes** must be used._
+
+Examples:
+
   - Must include `<cbc:ProfileID>` with a specific value.  
   - Currency codes must follow ISO 4217 (e.g. `EUR`).  
   - Units must follow UN/ECE codes (`EA` for “each”, `HUR` for “hour”).  
@@ -51,9 +59,12 @@ Examples:
 
 ## 4. Validation Artefacts (Schematron Rules)
 
-- After creating a UBL file, it must be tested against EN 16931 and PEPPOL rules.  
-- Validation is performed with **Schematron**, an XML rule language.  
+_After creating a UBL file, it must be tested against EN 16931 and PEPPOL rules._
+
+_Validation is performed with **Schematron**, an XML rule language._
+
 Example rule:  
+
   - “Invoice must have at least one `<cac:AccountingSupplierParty>`.”  
   - If rules are not followed, the invoice is **rejected**.  
 
@@ -66,6 +77,9 @@ Example rule:
 - Invoices are **not sent by email**.  
 - Instead, they are delivered through a **PEPPOL Access Point** (like an ISP for invoices).  
 - The UBL invoice is wrapped in a **Standard Business Document Header (SBDH)** and transmitted securely using the **AS4 protocol**.
+
+
+**Analogy:** the *postal service that delivers the letter to the recipient’s mailbox*.  
 
 !!! AS4
     **AS4** stands for **Applicability Statement 4**.  
@@ -84,9 +98,5 @@ Example rule:
     
     - Your **UBL invoice** is wrapped into a secure **AS4 message** by your **Access Point**.  
     - The AS4 message is sent to the recipient’s Access Point, which unwraps it and delivers the invoice.  
-    
-    ---
-
-**Analogy:** the *postal service that delivers the letter to the recipient’s mailbox*.  
 
 ---
