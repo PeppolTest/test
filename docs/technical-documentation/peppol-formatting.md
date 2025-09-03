@@ -87,14 +87,14 @@ Example rule:
     
     ---
     
-    ## Key points
+    Key points:
     
     - **AS2** was the older standard (often used in retail supply chains).  
     - **AS4** is the newer standard, built on **web services (SOAP)** with added **security and reliability**.
     
     ---
     
-    ## Role in PEPPOL
+    Role in PEPPOL:
     
     - Your **UBL invoice** is wrapped into a secure **AS4 message** by your **Access Point**.  
     - The AS4 message is sent to the recipient’s Access Point, which unwraps it and delivers the invoice.  
