@@ -624,6 +624,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#key-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key points
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#role-in-peppol" class="md-nav__link">
+    <span class="md-ellipsis">
+      Role in PEPPOL
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -722,14 +740,14 @@ Each layer has its own purpose:</p>
 <hr />
 <h2 id="1-business-model-en-16931">1. Business Model (EN 16931)</h2>
 <ul>
-<li>Defines <strong>what</strong> data must be present in an invoice.  </li>
-<li>Examples:  </li>
+<li>Defines <strong>what</strong> data must be present in an invoice.<br />
+Examples:  </li>
 <li>Invoice ID  </li>
 <li>Issue Date  </li>
 <li>Seller and Buyer details  </li>
 <li>At least one line with description, quantity, price, and tax  </li>
-<li>Totals and payment information  </li>
-<li>These are called <strong>Business Terms (BT-1 … BT-147)</strong>.  </li>
+<li>Totals and payment information<br />
+These are called <strong>Business Terms (BT-1 … BT-147)</strong>.  </li>
 </ul>
 <p><strong>Analogy:</strong> the <em>content of the letter</em>.</p>
 <hr />
@@ -748,8 +766,8 @@ Each layer has its own purpose:</p>
 <h2 id="3-peppol-bis-billing-30">3. PEPPOL BIS Billing 3.0</h2>
 <ul>
 <li>BIS = <strong>Business Interoperability Specification</strong>.  </li>
-<li>PEPPOL specifies <strong>exactly which options and codes</strong> must be used.  </li>
-<li>Examples:  </li>
+<li>PEPPOL specifies <strong>exactly which options and codes</strong> must be used.<br />
+Examples:  </li>
 <li>Must include <code>&lt;cbc:ProfileID&gt;</code> with a specific value.  </li>
 <li>Currency codes must follow ISO 4217 (e.g. <code>EUR</code>).  </li>
 <li>Units must follow UN/ECE codes (<code>EA</code> for “each”, <code>HUR</code> for “hour”).  </li>
@@ -760,8 +778,8 @@ Each layer has its own purpose:</p>
 <h2 id="4-validation-artefacts-schematron-rules">4. Validation Artefacts (Schematron Rules)</h2>
 <ul>
 <li>After creating a UBL file, it must be tested against EN 16931 and PEPPOL rules.  </li>
-<li>Validation is performed with <strong>Schematron</strong>, an XML rule language.  </li>
-<li>Example rule:  </li>
+<li>Validation is performed with <strong>Schematron</strong>, an XML rule language.<br />
+Example rule:  </li>
 <li>“Invoice must have at least one <code>&lt;cac:AccountingSupplierParty&gt;</code>.”  </li>
 <li>If rules are not followed, the invoice is <strong>rejected</strong>.  </li>
 </ul>
@@ -771,8 +789,26 @@ Each layer has its own purpose:</p>
 <ul>
 <li>Invoices are <strong>not sent by email</strong>.  </li>
 <li>Instead, they are delivered through a <strong>PEPPOL Access Point</strong> (like an ISP for invoices).  </li>
-<li>The UBL invoice is wrapped in a <strong>Standard Business Document Header (SBDH)</strong> and transmitted securely using the <strong>AS4 protocol</strong>.  </li>
+<li>The UBL invoice is wrapped in a <strong>Standard Business Document Header (SBDH)</strong> and transmitted securely using the <strong>AS4 protocol</strong>.</li>
 </ul>
+<div class="admonition as4">
+<p class="admonition-title">As4</p>
+<p><strong>AS4</strong> stands for <strong>Applicability Statement 4</strong>.<br />
+It is a <strong>communication protocol</strong>: a set of technical rules about <em>how two computers exchange business documents over the internet</em>.</p>
+<hr />
+<h2 id="key-points">Key points</h2>
+<ul>
+<li><strong>AS2</strong> was the older standard (often used in retail supply chains).  </li>
+<li><strong>AS4</strong> is the newer standard, built on <strong>web services (SOAP)</strong> with added <strong>security and reliability</strong>.</li>
+</ul>
+<hr />
+<h2 id="role-in-peppol">Role in PEPPOL</h2>
+<ul>
+<li>Your <strong>UBL invoice</strong> is wrapped into a secure <strong>AS4 message</strong> by your <strong>Access Point</strong>.  </li>
+<li>The AS4 message is sent to the recipient’s Access Point, which unwraps it and delivers the invoice.  </li>
+</ul>
+<hr />
+</div>
 <p><strong>Analogy:</strong> the <em>postal service that delivers the letter to the recipient’s mailbox</em>.  </p>
 <hr />
 
