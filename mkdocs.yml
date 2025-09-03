@@ -41,6 +41,11 @@ nav:
       - MySQL setup: getting-started/mysql-setup.md
       - MySQL remote connection: getting-started/remote-connection.md
       - Database structure: getting-started/database-structure.md
+  - Technical Documentation:
+      - Overview: technical-documentation/index.md
+      - invoice in: technical-documentation/invoice-in.md
+      - invoice out: technical-documentation/invoice-out.md
+      - peppol formatting: technical-documentation/peppol-formatting.md
   - FAQ: faq.md
   - Backup: backup.md
 
