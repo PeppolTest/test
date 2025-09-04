@@ -30,6 +30,7 @@ _Defines **how** to write the business model in a machine-readable format._
 UBL = **Universal Business Language**, an XML schema maintained by OASIS.  
 
 Example:  
+
   - BT-1 “Invoice number” →
     ```xml
     <cbc:ID>INV-2025-0001</cbc:ID>
